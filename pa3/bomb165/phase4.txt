@@ -1,0 +1,57 @@
+   0x5655761e <+0>:     push   %edi
+   0x5655761f <+1>:     push   %esi
+   0x56557620 <+2>:     push   %ebx
+   0x56557621 <+3>:     mov    0x10(%esp),%edi
+   0x56557625 <+7>:     sub    $0xc,%esp
+   0x56557628 <+10>:    push   %edi
+   0x56557629 <+11>:    call   0x56557a18 <string_length>
+   0x5655762e <+16>:    add    $0x1,%eax
+   0x56557631 <+19>:    mov    %eax,(%esp)
+   0x56557634 <+22>:    call   0xf7def8b0 <malloc>
+   0x56557639 <+27>:    mov    %eax,%esi
+   0x5655763b <+29>:    add    $0x10,%esp
+   0x5655763e <+32>:    testb  $0xdf,(%edi)
+   0x56557641 <+35>:    je     0x5655769d <phase_4+127>
+   0x56557643 <+37>:    mov    %edi,%ebx
+   0x56557645 <+39>:    add    $0x1,%ebx
+   0x56557648 <+42>:    testb  $0xdf,(%ebx)
+   0x5655764b <+45>:    jne    0x56557645 <phase_4+39>
+   0x5655764d <+47>:    cmp    %ebx,%edi
+   0x5655764f <+49>:    je     0x5655769f <phase_4+129>
+   0x56557651 <+51>:    mov    %esi,%edx
+   0x56557653 <+53>:    mov    %ebx,%eax
+   0x56557655 <+55>:    sub    $0x1,%eax
+   0x56557658 <+58>:    movzbl (%eax),%ecx
+   0x5655765b <+61>:    mov    %cl,(%edx)
+   0x5655765d <+63>:    add    $0x1,%edx
+   0x56557660 <+66>:    cmp    %eax,%edi
+   0x56557662 <+68>:    jne    0x56557655 <phase_4+55>
+   0x56557664 <+70>:    mov    %ebx,%edx
+   0x56557666 <+72>:    sub    %eax,%edx
+   0x56557668 <+74>:    lea    (%esi,%edx,1),%eax
+   0x5655766b <+77>:    movzbl (%ebx),%edx
+   0x5655766e <+80>:    test   %dl,%dl
+   0x56557670 <+82>:    je     0x56557681 <phase_4+99>
+   0x56557672 <+84>:    mov    %dl,(%eax)
+   0x56557674 <+86>:    add    $0x1,%eax
+   0x56557677 <+89>:    add    $0x1,%ebx
+   0x5655767a <+92>:    movzbl (%ebx),%edx
+   0x5655767d <+95>:    test   %dl,%dl
+   0x5655767f <+97>:    jne    0x56557672 <phase_4+84>
+   0x56557681 <+99>:    movb   $0x0,(%eax)
+   0x56557684 <+102>:   sub    $0x8,%esp
+   0x56557687 <+105>:   push   %esi
+   0x56557688 <+106>:   push   $0x565591e4
+   0x5655768d <+111>:   call   0x56557a36 <strings_not_equal>
+   0x56557692 <+116>:   add    $0x10,%esp
+   0x56557695 <+119>:   test   %eax,%eax
+   0x56557697 <+121>:   jne    0x565576a6 <phase_4+136>
+   0x56557699 <+123>:   pop    %ebx
+   0x5655769a <+124>:   pop    %esi
+   0x5655769b <+125>:   pop    %edi
+   0x5655769c <+126>:   ret    
+   0x5655769d <+127>:   mov    %edi,%ebx
+   0x5655769f <+129>:   call   0x56557c7e <explode_bomb>
+   0x565576a4 <+134>:   jmp    0x56557651 <phase_4+51>
+   0x565576a6 <+136>:   call   0x56557c7e <explode_bomb>
+   0x565576ab <+141>:   jmp    0x56557699 <phase_4+123>
